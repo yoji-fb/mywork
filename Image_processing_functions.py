@@ -22,8 +22,8 @@ import matplotlib.pyplot as plt
 cwd = os.getcwd()
 
 dpi = 200
-filename0 = 'ILSLD_ISM_K501_rev00'
-filename1 = 'ILSLD_PA_K502_rev00'
+filename0 = 'ILSDP_Z_K503_rev00'
+filename1 = 'ILSDP_Z_K003_rev00_20211105'
 page_off = True
 page_length = 60
 separation = 10
@@ -233,8 +233,8 @@ def add_image(
 
 def add_image_tif(
         path: str,
-        filename0='ILSLD_ISM_K501_rev00',  # tiff, !filename_t must be bigger than filename1 (pixel size)
-        filename1='ILSLD_PA_K502_rev00', # tiff
+        filename0=filename0,  # tiff, !filename_t must be bigger than filename1 (pixel size)
+        filename1=filename1, # tiff
         grayscale=True
 ):
     path = path.replace('\\', '/')
@@ -262,7 +262,7 @@ def add_image_tif(
         # Add img1 on img0
         cnt = 0
         for img0, img1 in zip(imgs0, imgs1):
-            print('page' + cnt + '\nimg0', img0.shape, '\nimg1', img1.shape)
+            print('page' + str(cnt) + '\nimg0', img0.shape, '\nimg1', img1.shape)
             # img0 => img0_color. Convert gray to RGB (img0)
             img0_color = np.zeros((img0.shape[0], img0.shape[1], 3), dtype='uint8')
 
